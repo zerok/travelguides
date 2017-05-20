@@ -2,6 +2,10 @@
 title: Portland, Oregon, USA
 ---
 
+## Hotels et al.
+
+Hotels in Portland are quite expensive. Nowhere near as expensive as in San Francisco, mind you, but you will still have to spend quite a bit of money. If you're staying for more than just a couple of days, you might want to look into Airbnb. Especially in the neighborhoods on the east-side of the river (Buckman et al.) there are some really nice apartments available that are also affordable.
+
 ## Public transport
 
 Portland has an excellent public transport network consisting of busses, trams, and Max-lines that are something between a tram and a train.
