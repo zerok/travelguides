@@ -1,5 +1,10 @@
 ---
 title: Portland, Oregon, USA
+visits:
+- date: 2017-05
+  by:
+    - zerok
+    - ulope 
 ---
 
 ## Hotels et al.
