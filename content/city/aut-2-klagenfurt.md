@@ -1,0 +1,3 @@
+---
+title: Klagenfurt, Carinthia, Austria
+---
