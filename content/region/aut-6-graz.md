@@ -1,3 +1,5 @@
 ---
-title: Graz, Styria, Austria
+title: Graz
+type: city
+parent: aut-6
 ---
