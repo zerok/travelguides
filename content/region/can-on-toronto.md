@@ -1,3 +1,5 @@
 ---
-title: Toronto, Ontario, Canada
+title: Toronto
+parent: can-on
+type: city
 ---

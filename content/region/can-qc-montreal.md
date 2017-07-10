@@ -1,3 +1,5 @@
 ---
-title: Montréal, Quebec, Canada
+title: Montréal
+type: city
+parent: can-qc
 ---

@@ -1,5 +1,5 @@
 ---
-name: Ontario
+title: Ontario
 type: state
 parent: can
 ---

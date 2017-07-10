@@ -1,5 +1,5 @@
 ---
-name: Styria
+title: Styria
 parent: aut
 type: state
 ---

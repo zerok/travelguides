@@ -1,4 +1,4 @@
 ---
-name: Austria
+title: Austria
 type: country
 ---

@@ -1,5 +1,5 @@
 ---
-name: Carinthia
+title: Carinthia
 type: state
 parent: aut
 ---

@@ -1,5 +1,5 @@
 ---
-name: Québec
+title: Québec
 type: state
 parent: can
 ---

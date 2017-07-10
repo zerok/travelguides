@@ -1,5 +1,7 @@
 ---
-title: Portland, Oregon, USA
+title: Portland
+parent: usa-or
+type: city
 visits:
 - date: 2017-05
   by:

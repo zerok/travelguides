@@ -1,4 +1,4 @@
 ---
-name: Canada
+title: Canada
 type: country
 ---

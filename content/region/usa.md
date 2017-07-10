@@ -1,4 +1,4 @@
 ---
-name: United States of America
+title: United States of America
 type: country
 ---
