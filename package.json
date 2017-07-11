@@ -1,0 +1,23 @@
+{
+  "name": "strangenewplaces-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build_poicount": "node scripts/build_poicount.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/strangenewplaces/website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/strangenewplaces/website/issues"
+  },
+  "homepage": "https://gitlab.com/strangenewplaces/website/",
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "yaml-front-matter": "^3.4.0"
+  }
+}
