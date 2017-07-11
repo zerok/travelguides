@@ -1,0 +1,10 @@
+before_script:
+  - npm install
+
+stages:
+  - build
+
+build_poicount:
+  stage: build
+  script:
+    - npm run build_poicount
