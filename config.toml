@@ -1,0 +1,7 @@
+baseURL = "https://www.strangenewplaces.org/"
+languageCode = "en-us"
+title = "StrangeNewPlaces"
+metaDataFormat = "yaml"
+editor = "em -n"
+ignoreFiles = [ "\\.\\#" ]
+disableKinds = []

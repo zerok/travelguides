@@ -1,0 +1,21 @@
+{{ partial "header.html" }}
+<div class="page page__welcome">
+    <div class="welcome">
+        <p>Welcome to StrangeNewPlaces. Here we try to collect first-hand travel
+            tips from all over the world. Below you can navigate through all
+            the regions in this archive. You can also use the map to drill
+            down and search for interesting places.</p>
+        <ul class="list list__regions">
+            {{ range where (where (where $.Site.Pages "Section" "region") ".Params.parent" "==" nil) ".Type" "!=" "region" }}
+            <li><a href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)
+            {{ end }}
+        </ul>
+        <p>The following users have contributed to this project so far:</p>
+        <ul class="list list__contributors">
+            {{ range $.Site.Data.contributors }}
+            <li>{{ .name }}</li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+{{ partial "footer.html" }}

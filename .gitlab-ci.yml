@@ -1,13 +1,19 @@
 image: node:8-slim
 
+variables:
+  HUGO_VERSION: '0.25.1'
+  HUGO_SHA: 'fbf8ca850aaaaad331f5b40bbbe8e797115dab296a8486a53c0561f253ca7b00'
+
 cache:
   untracked: true
   key: "$CI_BUILD_REF_NAME"
   paths:
     - node_modules/
+    - tools/hugo-${HUGO_VERSION}.tar.gz
 
 before_script:
   - npm install
+  - bash scripts/install-tools.sh
 
 stages:
   - build
@@ -18,3 +24,8 @@ build_data:
     - mkdir -p data
     - npm run build_poicount
     - npm run build_contributors
+    - ./tools/hugo
+  artifacts:
+    paths:
+      - ./public
+    expire_in: 1 week

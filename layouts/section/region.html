@@ -1,0 +1,5 @@
+{{ partial "header.html" }}
+{{ range where .Site.Pages "Section" "region"}}
+<li><a href="{{ .URL | relURL }}">{{ .Title }}</a></li>
+{{ end }}
+{{ partial "footer.html" }}
