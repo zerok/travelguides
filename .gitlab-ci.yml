@@ -13,7 +13,7 @@ cache:
 
 before_script:
   - npm install
-  - bash scripts/install-tools.sh
+  - bash scripts/install_tools.sh
 
 stages:
   - build
