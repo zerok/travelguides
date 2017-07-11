@@ -2,6 +2,7 @@ image: node:8-slim
 
 before_script:
   - npm install
+  - mkdir -p data
 
 stages:
   - build
@@ -10,3 +11,8 @@ build_poicount:
   stage: build
   script:
     - npm run build_poicount
+
+build_contributors:
+  stage: build
+  script:
+    - npm run build_contributors

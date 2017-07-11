@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build_poicount": "node scripts/build_poicount.js"
+    "build_poicount": "node scripts/build_poicount.js",
+    "build_contributors": "node scripts/build_contributors.js"
   },
   "repository": {
     "type": "git",
