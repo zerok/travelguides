@@ -22,7 +22,7 @@
         {{ if .Params.address }}
         <dl class="medium-auto cell">
             <dt>Address:</dt>
-            <dd><i class="fa fa-globe"></i> {{ .Params.address }}</dd>
+            <dd><a href="http://maps.apple.com/?q={{ .Params.address | urlquery }}"><i class="fa fa-globe"></i> {{ .Params.address }}</a></dd>
         </dl>
         {{ end }}
     </aside>
