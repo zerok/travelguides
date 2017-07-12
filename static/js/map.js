@@ -19,7 +19,7 @@ function initMap() {
     } else {
         var lat = parseFloat(mapNode.getAttribute('data-lat'));
         var lng = parseFloat(mapNode.getAttribute('data-lng'));
-        points = [{lat: lat, lng: lng, title: 'POI'}];
+        points = [{lat: lat, lng: lng}];
     }
     if (!points.length) {
         return;
