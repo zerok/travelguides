@@ -1,6 +1,8 @@
 <div class="page page--region">
     <h1>{{ .Title }}</h1>
 
+    {{ partial "breadcrumbs" . }}
+
     {{ with $children := where $.Site.Pages ".Params.parent" "==" .File.BaseFileName }}
         {{ if (len $children) gt 0 }}
         <section>

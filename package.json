@@ -5,20 +5,24 @@
   "main": "index.js",
   "scripts": {
     "build_poicount": "node scripts/build_poicount.js",
-    "build_contributors": "node scripts/build_contributors.js"
+    "build_contributors": "node scripts/build_contributors.js",
+    "build_breadcrumbs": "node scripts/build_breadcrumbs.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/strangenewplaces/website.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Horst Gutmann",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/strangenewplaces/website/issues"
   },
   "homepage": "https://gitlab.com/strangenewplaces/website/",
   "devDependencies": {
+    "foundation-sites": "^6.4.1",
     "glob": "^7.1.2",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
     "yaml-front-matter": "^3.4.0"
   }
 }

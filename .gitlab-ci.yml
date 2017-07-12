@@ -25,6 +25,8 @@ build_data:
     - mkdir -p data
     - npm run build_poicount
     - npm run build_contributors
+    - npm run build_breadcrumbs
+    - ./node_modules/.bin/gulp prod
     - ./tools/hugo
   artifacts:
     paths:

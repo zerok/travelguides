@@ -1,0 +1,16 @@
+<nav>
+    <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        {{ with $breadcrumbs := (index $.Site.Data.breadcrumbs .File.Path) }}
+            {{ range $idx, $elem := $breadcrumbs }}
+                {{ with or ($last := (eq (len $breadcrumbs) (add $idx 1))) true }}
+                    {{ if $last }}
+                    <li>{{ $elem.title }}</li>
+                    {{ else }}
+                    <li><a href="{{ $elem.url }}">{{ $elem.title }}</a></li>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    </ul>
+</nav>

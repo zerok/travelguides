@@ -3,3 +3,5 @@
 /node_modules
 /data/poicount.json
 /data/contributors.json
+/data/breadcrumbs.json
+/static/css
