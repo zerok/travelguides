@@ -5,8 +5,8 @@ website: http://www.restaurant-ginko.at/
 address: Grazbachgasse 33, 8010 Graz
 region: aut-6-graz
 pos:
-    lat: 47.0655201
-    lng: 15.4436172
+    lat: 47.0655175
+    lng: 15.444132
 paymentOptions:
     - maestro
     - cash
