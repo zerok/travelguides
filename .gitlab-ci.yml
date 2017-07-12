@@ -12,6 +12,7 @@ cache:
     - tools/hugo-${HUGO_VERSION}.tar.gz
 
 before_script:
+  - rm -rf public
   - npm install
   - bash scripts/install_tools.sh
 
@@ -27,5 +28,6 @@ build_data:
     - ./tools/hugo
   artifacts:
     paths:
-      - ./public
+      - ./public/./
     expire_in: 1 week
+
