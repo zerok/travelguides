@@ -4,3 +4,15 @@
 @include foundation-xy-grid-classes;
 @include foundation-typography;
 @include foundation-breadcrumbs;
+
+.grid-container {
+    padding: 1rem;
+}
+
+#map {
+    min-height: 400px;
+    @include breakpoint(medium down) {
+        order: 2;
+    }
+}
+

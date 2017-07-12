@@ -1,0 +1,42 @@
+<h1>{{ .Title }}</h1>
+{{ partial "breadcrumbs.html" . }}
+<div class="grid-x grid-margin-x">
+{{ if .Params.pos }}
+<div class="medium-6 cell" id="map">
+</div>
+<script>
+function initMap() {
+    var pos = {lat: {{ .Params.pos.lat }}, lng: {{ .Params.pos.lng }}};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: pos
+    });
+    var marker = new google.maps.Marker({
+        position: pos,
+        map: map
+    });
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key={{ getenv "MAPS_API_KEY" }}&amp;callback=initMap">
+</script>
+
+{{ end }}
+<div class="auto cell">
+    <aside class="grid-x">
+        {{ if .Params.website }}
+        <dl class="auto cell">
+            <dt>Website:</dt>
+            <dd><a href="{{ .Params.website }}">{{ .Params.website }}</a></dd>
+        </dl>
+        {{ end }}
+        {{ if .Params.address }}
+        <dl class="auto cell">
+            <dt>Address:</dt>
+            <dd>{{ .Params.address }}</dd>
+        </dl>
+        {{ end }}
+    </aside>
+    {{ .Content }}
+</div>
+</div>{{/*grid-x*/}}
