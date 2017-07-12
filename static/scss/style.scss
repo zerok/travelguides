@@ -16,6 +16,12 @@
     }
 }
 
+.map__marker {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .paymentoptions {
     list-style: none;
     padding: 0;

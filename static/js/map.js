@@ -7,14 +7,20 @@ function initMap() {
     var bounds = new google.maps.LatLngBounds();
     var zoom = parseInt(mapNode.getAttribute('data-map-zoom') || 15);
     var points = [];
+    var map = null;
     if (mode === 'list') {
         points = Array.prototype.map.call(document.querySelectorAll('.map__marker'), node => {
-            return {
+            var pos = {
                 lat: parseFloat(node.getAttribute('data-lat')),
                 lng: parseFloat(node.getAttribute('data-lng')),
                 title: node.getAttribute('title'),
                 url: node.getAttribute('href')
             };
+            node.addEventListener('mouseover', () => {
+                map.panTo(pos);
+            });
+            
+            return pos;
         });
     } else {
         var lat = parseFloat(mapNode.getAttribute('data-lat'));
@@ -27,7 +33,7 @@ function initMap() {
     points.forEach(point => {
         bounds.extend(new google.maps.LatLng(point.lat, point.lng));
     });
-    var map = new google.maps.Map(mapNode);
+    map = new google.maps.Map(mapNode);
     if (points.length > 1) {
         map.fitBounds(bounds);
     } else {
