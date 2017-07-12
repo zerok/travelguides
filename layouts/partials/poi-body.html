@@ -1,4 +1,3 @@
-<h1>{{ .Title }}</h1>
 {{ partial "breadcrumbs.html" . }}
 <div class="grid-x grid-margin-x">
 {{ if .Params.pos }}
@@ -17,13 +16,13 @@
         {{ if .Params.website }}
         <dl class="medium-auto cell">
             <dt>Website:</dt>
-            <dd><a href="{{ .Params.website }}">{{ .Params.website }}</a></dd>
+            <dd><a href="{{ .Params.website }}"><i class="fa fa-external-link"></i> {{ .Params.website }}</a></dd>
         </dl>
         {{ end }}
         {{ if .Params.address }}
         <dl class="medium-auto cell">
             <dt>Address:</dt>
-            <dd>{{ .Params.address }}</dd>
+            <dd><i class="fa fa-globe"></i> {{ .Params.address }}</dd>
         </dl>
         {{ end }}
     </aside>
