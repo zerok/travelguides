@@ -1,24 +1,28 @@
 {{ partial "header.html" . }}
-<div class="page page__welcome grid-x">
+<div class="page page__welcome">
     <h1><i class="fa fa-globe"></i> {{ $.Site.Title }}</h1>
-    <div class="map cell">
-    </div>
-    <div class="welcome cell">
-        <p>Welcome to StrangeNewPlaces. Here we try to collect first-hand travel
-            tips from all over the world. Below you can navigate through all
-            the regions in this archive. You can also use the map to drill
-            down and search for interesting places.</p>
-        <ul class="list list__regions">
-            {{ range where (where (where $.Site.Pages "Section" "region") ".Params.parent" "==" nil) ".Type" "!=" "region" }}
-            <li><a href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)
-            {{ end }}
-        </ul>
-        <p>The following users have contributed to this project so far:</p>
-        <ul class="list list__contributors">
-            {{ range $.Site.Data.contributors }}
-            <li>{{ .name }}</li>
-            {{ end }}
-        </ul>
+    <div class="grid-x grid-margin-x">
+        <div class="medium-6 cell" id="map" data-map-mode="list">
+        </div>
+        <div class="welcome medium-6 cell">
+            <p>Welcome to StrangeNewPlaces. Here we try to collect first-hand travel
+                tips from all over the world. Below you can navigate through all
+                the regions in this archive. You can also use the map to drill
+                down and search for interesting places.</p>
+            <ul class="list list__regions">
+                {{ range where (where (where $.Site.Pages "Section" "region") ".Params.parent" "==" nil) ".Type" "!=" "region" }}
+                <li><a title="{{ .Title }}" class="map__marker" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}" href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)
+                {{ end }}
+            </ul>
+            <p>The following users have contributed to this project so far:</p>
+            <ul class="list list__contributors">
+                {{ range $.Site.Data.contributors }}
+                <li>{{ .name }}</li>
+                {{ end }}
+            </ul>
+        </div>
     </div>
 </div>
+<script src="/js/map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ getenv "MAPS_API_KEY" }}&amp;callback=initMap"></script>
 {{ partial "footer.html" . }}

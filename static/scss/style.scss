@@ -5,6 +5,7 @@
 @include foundation-typography;
 @include foundation-breadcrumbs;
 @include foundation-button;
+@include foundation-table;
 
 .grid-container {
     padding: 1rem;
@@ -14,6 +15,16 @@
     min-height: 400px;
     @include breakpoint(medium down) {
         order: 2;
+    }
+}
+
+.tags {
+    ul {
+        list-style: none;
+    }
+    li {
+        display: inline-block;
+        margin-right: 1rem;
     }
 }
 

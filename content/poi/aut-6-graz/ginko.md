@@ -10,6 +10,9 @@ pos:
 paymentOptions:
     - maestro
     - cash
+tags:
+    - vegetarian
+    - buffet
 ---
 
 Ginko is probably the best-known vegetarian Restaurant in Graz. Open starting

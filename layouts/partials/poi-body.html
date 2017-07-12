@@ -3,9 +3,6 @@
 {{ if .Params.pos }}
 <div class="medium-6 cell" id="map" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">
 </div>
-<script>
-
-</script>
 <script src="/js/map.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ getenv "MAPS_API_KEY" }}&amp;callback=initMap">
 </script>
@@ -49,6 +46,16 @@
     </div>
     </aside>
     {{ .Content }}
+
+    {{ if .Params.tags }}
+    <nav class="tags">
+        <ul>
+            {{ range .Params.tags }}
+            <li><a href="/tags/{{ . | urlize }}"><i class="fa fa-tag"></i> {{ . }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+    {{ end }}
 
     <a href="https://gitlab.com/strangenewplaces/website/edit/master/content/{{ .File.Path }}" class="button small"><i class="fa fa-pencil"></i> Improve this page</a>
 </div>

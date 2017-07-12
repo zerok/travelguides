@@ -16,7 +16,7 @@
                     <h2>Children</h2>
                     <ul>
                         {{ range $children }}
-                        <li><a href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)</li>
+                        <li><a title="{{ .Title }}" class="map__marker" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}" href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)</li>
                         {{ end }}
                     </ul>
                 </section>

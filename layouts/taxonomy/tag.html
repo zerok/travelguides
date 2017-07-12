@@ -1,0 +1,41 @@
+{{ partial "header.html" . }}
+<div class="page page--tag">
+    <h1>Tag: {{ .Title }}</h1>
+
+    {{ partial "breadcrumbs.html" . }}
+
+    <div class="grid-x grid-margin-x">
+        <div class="medium-6 cell" id="map" data-map-mode="list">
+        </div>
+        <div class="medium-6 cell">
+            <table class="hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Data.Pages }}
+                    <tr>
+                        <td><a href=""  title="{{ .Title }}" class="map__marker" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">{{ .Title }}</a></td>
+                        <td>
+                            {{ with $path := index $.Site.Data.breadcrumbs .File.Path }}
+                                {{ range $idx, $elem := $path }}
+                                    {{ if lt (add $idx 1) (len $path)}}
+                                    <a href="{{ $elem.url }}">{{ $elem.title }}</a>{{ if lt (add $idx 2) (len $path) }} / {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/js/map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ getenv "MAPS_API_KEY" }}&amp;callback=initMap">
+</script>
+{{ partial "footer.html" . }}
