@@ -7,6 +7,9 @@ address: Radetzkystraße 6, 8010 Graz
 pos:
     lat: 47.0668206
     lng: 15.4383383
+paymentOptions:
+    - maestro
+    - cash
 ---
 
 EAT ASIA is an Asian restaurant in the heart of the city specialized in

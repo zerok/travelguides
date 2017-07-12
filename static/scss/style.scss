@@ -16,3 +16,14 @@
     }
 }
 
+.paymentoptions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+}
+

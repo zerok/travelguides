@@ -12,7 +12,8 @@
 
 {{ end }}
 <div class="auto cell">
-    <aside class="grid-x">
+    <aside>
+    <div class="grid-x">
         {{ if .Params.website }}
         <dl class="medium-auto cell">
             <dt>Website:</dt>
@@ -22,9 +23,30 @@
         {{ if .Params.address }}
         <dl class="medium-auto cell">
             <dt>Address:</dt>
-            <dd><a href="http://maps.apple.com/?q={{ .Params.address | urlquery }}"><i class="fa fa-globe"></i> {{ .Params.address }}</a></dd>
+            <dd><a href="http://maps.apple.com/?q={{ .Params.address | urlquery }}"><i class="fa fa-map-pin"></i> {{ .Params.address }}</a></dd>
         </dl>
         {{ end }}
+    </div>
+    <div class="grid-x">
+        {{ if .Params.paymentOptions }}
+        <dl class="cell">
+            <dt>Payment options:</dt>
+            <dd>
+                <ul class="paymentoptions">
+                {{ range .Params.paymentOptions }}
+                    {{ if eq . "maestro" }}
+                        <li><i class="fa fa-credit-card"></i> Maestro</li>
+                    {{ else if eq . "cc" }}
+                        <li><i class="fa fa-credit-card"></i> Credit card</li>
+                    {{ else if eq . "cash" }}
+                        <li><i class="fa fa-money"></i> Cash</li>
+                    {{ end }}
+                {{ end }}
+                </ul>
+            </dd>
+        </dl>
+        {{ end }}
+    </div>
     </aside>
     {{ .Content }}
 </div>
