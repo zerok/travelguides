@@ -23,10 +23,6 @@ body {
     padding: 1rem;
 }
 
-h1 i {
-    color: $primary-color;
-}
-
 #map {
     min-height: 400px;
     @include breakpoint(medium down) {
@@ -58,6 +54,15 @@ h1 i {
     li {
         display: inline-block;
         margin-right: 1rem;
+    }
+}
+
+header {
+    background: $primary-color;
+    color: $page-bg;
+
+    i {
+        color: lighten($primary-color, 50);
     }
 }
 
