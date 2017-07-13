@@ -5,8 +5,8 @@ region: "aut-6-graz"
 website: http://www.sbiergartl.at/
 address: Schönaugasse 41, 8010 Graz
 pos:
-    lat: 47.0635567
-    lng: 15.4381569
+    lat: 47.06349
+    lng: 15.44035
 paymentOptions:
     - cash
 ---
