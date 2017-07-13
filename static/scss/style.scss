@@ -31,12 +31,21 @@ body {
 }
 
 .tags {
+    font-size: 70%;
+    text-align: right;
     ul {
         list-style: none;
     }
     li {
         display: inline-block;
         margin-right: 1rem;
+    }
+    a {
+        color: $secondary-color;
+        &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+        }
     }
 }
 
@@ -69,7 +78,9 @@ body {
     }
 }
 
-.pois__item__tags, .subregions__item__info {
+.pois__item__tags,
+.subregions__item__info,
+.pois__item__info {
     display: block;
     font-size: 75%;
     color: $secondary-color;

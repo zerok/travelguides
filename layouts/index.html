@@ -8,9 +8,12 @@
                 tips from all over the world. Below you can navigate through all
                 the regions in this archive. You can also use the map to drill
                 down and search for interesting places.</p>
-            <ul class="list list__regions">
+            <ul class="subregions">
                 {{ range where (where (where $.Site.Pages "Section" "region") ".Params.parent" "==" nil) ".Type" "!=" "region" }}
-                <li><a title="{{ .Title }}" class="map__marker" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}" href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)
+                <li class="subregions__item map__marker" title="{{ .Title }}" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}" data-href="{{ .URL | relURL }}">
+                    <a href="{{ .URL | relURL }}"><i class="fa fa-globe"></i> {{ .Title }}</a>
+                    <span class="subregions__item__info">{{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs</span>
+                </li>
                 {{ end }}
             </ul>
             <p>The following users have contributed to this project so far:</p>

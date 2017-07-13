@@ -11,11 +11,10 @@
             {{ with $children := where $.Site.Pages ".Params.parent" "==" .File.BaseFileName }}
                 {{ if (len $children) gt 0 }}
                 <section>
-                    <h2>Sub-regions</h2>
                     <ul class="subregions">
                         {{ range $children }}
                         <li class="subregions__item map__marker" title="{{ .Title }}" data-href="{{ .URL | relURL }}" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">
-                            <a href="{{ .URL | relURL }}">{{ .Title }}</a>
+                            <a href="{{ .URL | relURL }}"><i class="fa fa-globe"></i> {{ .Title }}</a>
                             <span class="subregions__item__info">{{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs</span>
                         </li>
                         {{ end }}
@@ -27,15 +26,14 @@
             {{ with $pois := where $.Site.Pages ".Params.region" "==" .File.BaseFileName }}
                 {{ if (len $pois) gt 0 }}
                 <section>
-                    <h2>POIs</h2>
                     <ul class="pois">
                         {{ range $pois }}
                         <li class="pois__item map__marker" title="{{ .Title }}" data-href="{{ .URL | relURL }}" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">
-                            <a href="{{ .URL | relURL }}">{{ .Title }}</a>
+                            <a href="{{ .URL | relURL }}"><i class="fa fa-map-marker"></i> {{ .Title }}</a>
                             {{ if .Params.tags }}
                                 <ul class="pois__item__tags">
                                 {{ range .Params.tags }}
-                                    <li class="pois__item__tag"><a href="/tags/{{ . | urlize }}"><i class="fa fa-tags"></i> {{ . }}</a></li>
+                                    <li class="pois__item__tag"><a href="/tags/{{ . | urlize }}"><i class="fa fa-tag"></i> {{ . }}</a></li>
                                 {{ end }}
                                 </ul>
                             {{ end }}
