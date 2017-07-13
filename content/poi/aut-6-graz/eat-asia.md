@@ -10,6 +10,9 @@ pos:
 paymentOptions:
     - maestro
     - cash
+tags:
+    - asian
+    - ramen
     - running-sushi
 ---
 
