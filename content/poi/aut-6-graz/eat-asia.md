@@ -10,6 +10,7 @@ pos:
 paymentOptions:
     - maestro
     - cash
+    - running-sushi
 ---
 
 EAT ASIA is an Asian restaurant in the heart of the city specialized in
