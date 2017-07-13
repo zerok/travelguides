@@ -12,6 +12,7 @@ tags:
     - cocktails
     - dj
     - tapas
+    - outdoor-dining-area
 paymentOptions:
     - cash
     - maestro

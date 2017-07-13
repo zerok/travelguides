@@ -9,6 +9,10 @@ pos:
     lng: 15.44035
 paymentOptions:
     - cash
+tags:
+    - beer
+    - regional
+    - outdoor-dining-area
 ---
 
 s'Biergartl is a typical Austrian restaurant with a large menu. The focus here is on non-vegetarian meals but there are also some vegetarian options. If you're into things like that, give the "Bauern-Cordon Bleu" a try! Make sure, though, not to have any plans for eating anything else that day 😁
