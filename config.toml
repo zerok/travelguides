@@ -5,3 +5,8 @@ metaDataFormat = "yaml"
 editor = "em -n"
 ignoreFiles = [ "\\.\\#" ]
 disableKinds = []
+[[menu.footer]]
+    name = "Feedback"
+    url = "https://gitlab.com/strangenewplaces/website/issues"
+    weight = -1
+    pre = "<i class='fa fa-comment'></i> "

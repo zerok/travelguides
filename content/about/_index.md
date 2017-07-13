@@ -3,6 +3,7 @@ title: About StrangeNewPlaces.org
 menu:
     footer:
         name: About
+        pre: <i class="fa fa-info-circle"></i>
 ---
 
 [StrangeNewPlaces.org][] is intended as a collection of regional travel-tips
