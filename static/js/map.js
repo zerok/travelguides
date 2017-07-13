@@ -8,6 +8,8 @@ function initMap() {
     var zoom = parseInt(mapNode.getAttribute('data-map-zoom') || 15);
     var points = [];
     var map = null;
+    var initialCenter = null;
+    var resetPosTimeout = null;
     if (mode === 'list') {
         points = Array.prototype.map.call(document.querySelectorAll('.map__marker'), node => {
             var pos = {
@@ -17,7 +19,19 @@ function initMap() {
                 url: node.getAttribute('href')
             };
             node.addEventListener('mouseover', () => {
+                if (resetPosTimeout) {
+                    clearTimeout(resetPosTimeout);
+                    resetPosTimeout = null;
+                }
                 map.panTo(pos);
+            });
+            node.addEventListener('mouseout', () => {
+                if (resetPosTimeout) {
+                    return;
+                }
+                resetPosTimeout = setTimeout(() => {
+                    map.panTo(initialCenter);
+                }, 500);
             });
             
             return pos;
@@ -42,6 +56,7 @@ function initMap() {
             map.setZoom(zoom);
         }
     }
+    initialCenter = bounds.getCenter();
     points.forEach(point => {
         new google.maps.Marker({
             position: point,
