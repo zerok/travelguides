@@ -12,9 +12,12 @@
                 {{ if (len $children) gt 0 }}
                 <section>
                     <h2>Sub-regions</h2>
-                    <ul>
+                    <ul class="subregions">
                         {{ range $children }}
-                        <li><a title="{{ .Title }}" class="map__marker" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}" href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)</li>
+                        <li class="subregions__item map__marker" title="{{ .Title }}" data-href="{{ .URL | relURL }}" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">
+                            <a href="{{ .URL | relURL }}">{{ .Title }}</a>
+                            <span class="subregions__item__info">{{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs</span>
+                        </li>
                         {{ end }}
                     </ul>
                 </section>
@@ -25,9 +28,18 @@
                 {{ if (len $pois) gt 0 }}
                 <section>
                     <h2>POIs</h2>
-                    <ul>
+                    <ul class="pois">
                         {{ range $pois }}
-                        <li><a title="{{ .Title }}" class="map__marker" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}" href="{{ .URL | relURL }}">{{ .Title }}</a></li>
+                        <li class="pois__item map__marker" title="{{ .Title }}" data-href="{{ .URL | relURL }}" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">
+                            <a href="{{ .URL | relURL }}">{{ .Title }}</a>
+                            {{ if .Params.tags }}
+                                <ul class="pois__item__tags">
+                                {{ range .Params.tags }}
+                                    <li class="pois__item__tag"><a href="/tags/{{ . | urlize }}"><i class="fa fa-tags"></i> {{ . }}</a></li>
+                                {{ end }}
+                                </ul>
+                            {{ end }}
+                        </li>
                         {{ end }}
                     </ul>
                 </section>

@@ -40,12 +40,6 @@ body {
     }
 }
 
-.map__marker {
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
 .paymentoptions {
     list-style: none;
     padding: 0;
@@ -55,6 +49,46 @@ body {
         display: inline-block;
         margin-right: 1rem;
     }
+}
+
+.pois, .subregions {
+    list-style: none;
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+.pois__item, .subregions__item {
+    padding: 5px;
+    margin: 0;
+    border-top: 1px dotted $secondary-color;
+    &:hover {
+        background: #EFEFEF;
+    }
+    &:first-child {
+        border-top: 0;
+    }
+}
+
+.pois__item__tags, .subregions__item__info {
+    display: block;
+    font-size: 75%;
+    color: $secondary-color;
+    opacity: 0.6;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    a {
+        color: $secondary-color;
+        &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+        }
+    }
+}
+
+.pois__item__tag {
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
 header {

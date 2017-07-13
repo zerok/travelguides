@@ -16,7 +16,7 @@ function initMap() {
                 lat: parseFloat(node.getAttribute('data-lat')),
                 lng: parseFloat(node.getAttribute('data-lng')),
                 title: node.getAttribute('title'),
-                url: node.getAttribute('href')
+                url: node.getAttribute('data-href')
             };
             node.addEventListener('mouseover', () => {
                 if (resetPosTimeout) {
