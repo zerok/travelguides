@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+<div class="page">
+    <h1><i class="fa fa-info"></i> {{ .Title }}</h1>
+
+    {{ partial "breadcrumbs.html" . }}
+
+    <div class="grid-x">
+        <div class="cell medium-offset-2 medium-8">{{ .Content }}</div>
+    </div>
+</div>
+{{ partial "footer.html" . }}

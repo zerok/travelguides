@@ -13,7 +13,7 @@
             {{ with $children := where $.Site.Pages ".Params.parent" "==" .File.BaseFileName }}
                 {{ if (len $children) gt 0 }}
                 <section>
-                    <h2>Children</h2>
+                    <h2>Sub-regions</h2>
                     <ul>
                         {{ range $children }}
                         <li><a title="{{ .Title }}" class="map__marker" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}" href="{{ .URL | relURL }}">{{ .Title }}</a> ({{ index $.Site.Data.poicount .File.BaseFileName | default 0 }} POIs)</li>

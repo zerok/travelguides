@@ -7,8 +7,24 @@
 @include foundation-button;
 @include foundation-table;
 
+$body-bg: #DDD;
+$page-bg: #FFF;
+$footer-color: #333;
+
+body {
+    background: $body-bg;
+}
+
+.page-container {
+    background: $page-bg;
+}
+
 .grid-container {
     padding: 1rem;
+}
+
+h1 i {
+    color: $primary-color;
 }
 
 #map {
@@ -45,3 +61,30 @@
     }
 }
 
+footer {
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: $body-bg;
+    text-align: right;
+    font-size: 80%;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: inline-block;
+        &:before {
+            content: '/';
+            margin: 0 0.5rem;
+            color: $primary-color;
+        }
+
+        &:first-child:before {
+            content: '';
+        }
+    }
+}

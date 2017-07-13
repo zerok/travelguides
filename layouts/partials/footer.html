@@ -2,5 +2,18 @@
 {{ if getenv "FA_CODE" }}
     <script src="https://use.fontawesome.com/{{ getenv "FA_CODE" }}.js"></script>
 {{ end }}
+<footer>
+    {{ with $menu := $.Site.Menus.footer }}
+    <nav id="footer-nav" class="grid-container">
+        <ul>
+            <li>&copy; 2017 StrangeNewThings.org contributors</li>
+            {{ range $menu }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+    {{ end }}
+</footer>
+</div>
 </body>
 </html>
