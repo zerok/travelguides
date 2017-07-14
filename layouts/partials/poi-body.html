@@ -45,13 +45,15 @@
         {{ .Content }}
 
         <div class="grid-x">
-            {{ with $contributors := index (index $.Site.Data.history (printf "content/%s" .File.Path)) "contributors" }}
+            {{ if in $.Site.Data.history (printf "content/%s" .File.Path) }}
+            {{ with $contributors := (index (index $.Site.Data.history (printf "content/%s" .File.Path)) "contributors") }}
             <section class="poi__contributors cell medium-6">
                 <h2>Contributed by</h2>
                 {{ range $contributors}}
                 <img src="https://www.gravatar.com/avatar/{{ index . "hash"}}?s=32" title="{{ index . "name" }}" alt="{{ index . "name" }}">
                 {{ end }}
             </section>
+            {{ end }}
             {{ end }}
 
             {{ if .Params.tags }}
@@ -65,7 +67,7 @@
             {{ end }}
         </div>
 
-
+        {{ if in $.Site.Data.history (printf "content/%s" .File.Path) }}
         {{ with $log := index (index $.Site.Data.history (printf "content/%s" .File.Path)) "log" }}
         <section class="poi__history collapsable">
             <h2 class="collapsable__label"><i class="fa fa-clock-o"></i> History</h2>
@@ -78,6 +80,7 @@
             {{ end }}
             </ul>
         </section>
+        {{ end }}
         {{ end }}
 
         <a href="https://gitlab.com/strangenewplaces/website/edit/master/content/{{ .File.Path }}" class="button small"><i class="fa fa-pencil"></i> Improve this page</a>
