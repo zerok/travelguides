@@ -17,14 +17,12 @@
                 {{ end }}
             </ul>
             <p>The following users have contributed to this project so far:</p>
-            <ul class="list list__contributors">
+            <ul class="list list--people">
                 {{ range $.Site.Data.contributors }}
-                <li>{{ .name }}</li>
+                <li class="list__item"><i class="fa fa-user"></i> {{ .name }}</li>
                 {{ end }}
             </ul>
         </div>
     </div>
 </div>
-<script src="/js/map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ getenv "MAPS_API_KEY" }}&amp;callback=initMap"></script>
 {{ partial "footer.html" . }}

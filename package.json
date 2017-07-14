@@ -6,7 +6,8 @@
   "scripts": {
     "build_poicount": "node scripts/build_poicount.js",
     "build_contributors": "node scripts/build_contributors.js",
-    "build_breadcrumbs": "node scripts/build_breadcrumbs.js"
+    "build_breadcrumbs": "node scripts/build_breadcrumbs.js",
+    "build_history": "node scripts/build_history.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://gitlab.com/strangenewplaces/website/",
   "devDependencies": {
+    "bluebird": "^3.5.0",
     "foundation-sites": "^6.4.1",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",

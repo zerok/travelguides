@@ -15,6 +15,10 @@ body {
     background: $body-bg;
 }
 
+h2 {
+    font-size: 1.6rem;
+}
+
 .page-container {
     background: $page-bg;
 }
@@ -30,9 +34,10 @@ body {
     }
 }
 
-.tags {
+.poi__tags {
     font-size: 70%;
     text-align: right;
+    margin-bottom: 1rem;
     ul {
         list-style: none;
     }
@@ -49,6 +54,22 @@ body {
     }
 }
 
+.poi__contributors {
+    margin-bottom: 1rem;
+    
+    h2 {
+        font-size: 100%;
+        font-weight: bold;
+    }
+
+    img {
+        display: inline-block;
+        border-radius: 3px;
+        padding: 2px;
+        border: 2px solid $secondary-color;
+    }
+}
+
 .paymentoptions {
     list-style: none;
     padding: 0;
@@ -60,13 +81,13 @@ body {
     }
 }
 
-.pois, .subregions {
+.pois, .subregions, .list {
     list-style: none;
     margin: 0 0 1rem 0;
     padding: 0;
 }
 
-.pois__item, .subregions__item {
+.pois__item, .subregions__item, .list__item {
     padding: 5px;
     margin: 0;
     border-top: 1px dotted $secondary-color;
@@ -80,7 +101,7 @@ body {
 
 .pois__item__tags,
 .subregions__item__info,
-.pois__item__info {
+.list__item__info {
     display: block;
     font-size: 75%;
     color: $secondary-color;
@@ -137,4 +158,12 @@ footer {
             content: '';
         }
     }
+}
+
+.collapsable--collapsed .collapsable__body {
+    display: none;
+}
+
+.collapsable--open .collapsable__body {
+    display: block;
 }

@@ -27,6 +27,7 @@ build_data:
     - npm run build_poicount
     - npm run build_contributors
     - npm run build_breadcrumbs
+    - npm run build_history
     - ./node_modules/.bin/gulp prod
     - ./tools/hugo
   artifacts:

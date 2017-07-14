@@ -4,9 +4,6 @@
     <div class="grid-x grid-margin-x">
         <div class="medium-auto cell" id="map" data-map-mode="list">
         </div>
-        <script src="/js/map.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ getenv "MAPS_API_KEY" }}&amp;callback=initMap">
-        </script>
         <div class="medium-auto cell">
             {{ with $children := where $.Site.Pages ".Params.parent" "==" .File.BaseFileName }}
                 {{ if (len $children) gt 0 }}

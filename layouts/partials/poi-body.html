@@ -1,64 +1,86 @@
 <div class="page">
 {{ partial "breadcrumbs.html" . }}
 <div class="grid-x grid-margin-x">
-{{ if .Params.pos }}
-<div class="medium-6 cell" id="map" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">
-</div>
-<script src="/js/map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ getenv "MAPS_API_KEY" }}&amp;callback=initMap">
-</script>
-
-{{ end }}
-<div class="auto cell">
-    <aside>
-    <div class="grid-x">
-        {{ if .Params.website }}
-        <dl class="medium-auto cell">
-            <dt>Website:</dt>
-            <dd><a href="{{ .Params.website }}"><i class="fa fa-external-link"></i> {{ .Params.website }}</a></dd>
-        </dl>
-        {{ end }}
-        {{ if .Params.address }}
-        <dl class="medium-auto cell">
-            <dt>Address:</dt>
-            <dd><a href="http://maps.apple.com/?q={{ .Params.address | urlquery }}"><i class="fa fa-map-pin"></i> {{ .Params.address }}</a></dd>
-        </dl>
-        {{ end }}
+    {{ if .Params.pos }}
+    <div class="medium-6 cell" id="map" data-lat="{{ .Params.pos.lat }}" data-lng="{{ .Params.pos.lng }}">
     </div>
-    <div class="grid-x">
-        {{ if .Params.paymentOptions }}
-        <dl class="cell">
-            <dt>Payment options:</dt>
-            <dd>
-                <ul class="paymentoptions">
-                {{ range .Params.paymentOptions }}
-                    {{ if eq . "maestro" }}
-                        <li><i class="fa fa-credit-card"></i> Maestro</li>
-                    {{ else if eq . "cc" }}
-                        <li><i class="fa fa-credit-card"></i> Credit card</li>
-                    {{ else if eq . "cash" }}
-                        <li><i class="fa fa-money"></i> Cash</li>
-                    {{ end }}
-                {{ end }}
-                </ul>
-            </dd>
-        </dl>
-        {{ end }}
-    </div>
-    </aside>
-    {{ .Content }}
-
-    {{ if .Params.tags }}
-    <nav class="tags">
-        <ul>
-            {{ range .Params.tags }}
-            <li><a href="/tags/{{ . | urlize }}"><i class="fa fa-tag"></i> {{ . }}</a></li>
-            {{ end }}
-        </ul>
-    </nav>
     {{ end }}
+    <div class="auto cell">
+        <aside>
+        <div class="grid-x">
+            {{ if .Params.website }}
+            <dl class="medium-auto cell">
+                <dt>Website:</dt>
+                <dd><a href="{{ .Params.website }}"><i class="fa fa-external-link"></i> {{ .Params.website }}</a></dd>
+            </dl>
+            {{ end }}
+            {{ if .Params.address }}
+            <dl class="medium-auto cell">
+                <dt>Address:</dt>
+                <dd><a href="http://maps.apple.com/?q={{ .Params.address | urlquery }}"><i class="fa fa-map-pin"></i> {{ .Params.address }}</a></dd>
+            </dl>
+            {{ end }}
+        </div>
+        <div class="grid-x">
+            {{ if .Params.paymentOptions }}
+            <dl class="cell">
+                <dt>Payment options:</dt>
+                <dd>
+                    <ul class="paymentoptions">
+                    {{ range .Params.paymentOptions }}
+                        {{ if eq . "maestro" }}
+                            <li><i class="fa fa-credit-card"></i> Maestro</li>
+                        {{ else if eq . "cc" }}
+                            <li><i class="fa fa-credit-card"></i> Credit card</li>
+                        {{ else if eq . "cash" }}
+                            <li><i class="fa fa-money"></i> Cash</li>
+                        {{ end }}
+                    {{ end }}
+                    </ul>
+                </dd>
+            </dl>
+            {{ end }}
+        </div>
+        </aside>
+        {{ .Content }}
 
-    <a href="https://gitlab.com/strangenewplaces/website/edit/master/content/{{ .File.Path }}" class="button small"><i class="fa fa-pencil"></i> Improve this page</a>
-</div>
+        <div class="grid-x">
+            {{ with $contributors := index (index $.Site.Data.history (printf "content/%s" .File.Path)) "contributors" }}
+            <section class="poi__contributors cell medium-6">
+                <h2>Contributed by</h2>
+                {{ range $contributors}}
+                <img src="https://www.gravatar.com/avatar/{{ index . "hash"}}?s=32" title="{{ index . "name" }}" alt="{{ index . "name" }}">
+                {{ end }}
+            </section>
+            {{ end }}
+
+            {{ if .Params.tags }}
+            <nav class="poi__tags cell medium-6">
+                <ul>
+                    {{ range .Params.tags }}
+                    <li><a href="/tags/{{ . | urlize }}"><i class="fa fa-tag"></i> {{ . }}</a></li>
+                    {{ end }}
+                </ul>
+            </nav>
+            {{ end }}
+        </div>
+
+
+        {{ with $log := index (index $.Site.Data.history (printf "content/%s" .File.Path)) "log" }}
+        <section class="poi__history collapsable">
+            <h2 class="collapsable__label"><i class="fa fa-clock-o"></i> History</h2>
+            <ul class="list collapsable__body">
+            {{ range $log }}
+                <li class="list__item">
+                    {{ index . "subject" }}
+                    <span class="list__item__info">{{ index . "author" "name" }} / {{ index . "date" }}</span>
+                </li>
+            {{ end }}
+            </ul>
+        </section>
+        {{ end }}
+
+        <a href="https://gitlab.com/strangenewplaces/website/edit/master/content/{{ .File.Path }}" class="button small"><i class="fa fa-pencil"></i> Improve this page</a>
+    </div>
 </div>{{/*grid-x*/}}
 </div>
