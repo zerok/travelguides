@@ -19,7 +19,7 @@
             <p>The following users have contributed to this project so far:</p>
             <ul class="list list--people">
                 {{ range $.Site.Data.contributors }}
-                <li class="list__item"><i class="fa fa-user"></i> {{ .name }}</li>
+                <li class="list__item"><img src="https://www.gravatar.com/avatar/{{ .hash }}?s=32"> {{ .name }}</li>
                 {{ end }}
             </ul>
         </div>
