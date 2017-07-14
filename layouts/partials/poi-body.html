@@ -45,7 +45,7 @@
         {{ .Content }}
 
         <div class="grid-x">
-            {{ if in $.Site.Data.history (printf "content/%s" .File.Path) }}
+            {{ if index $.Site.Data.history (printf "content/%s" .File.Path) }}
             {{ with $contributors := (index (index $.Site.Data.history (printf "content/%s" .File.Path)) "contributors") }}
             <section class="poi__contributors cell medium-6">
                 <h2>Contributed by</h2>
@@ -67,7 +67,7 @@
             {{ end }}
         </div>
 
-        {{ if in $.Site.Data.history (printf "content/%s" .File.Path) }}
+        {{ if index $.Site.Data.history (printf "content/%s" .File.Path) }}
         {{ with $log := index (index $.Site.Data.history (printf "content/%s" .File.Path)) "log" }}
         <section class="poi__history collapsable">
             <h2 class="collapsable__label"><i class="fa fa-clock-o"></i> History</h2>
