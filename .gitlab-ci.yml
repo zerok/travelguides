@@ -29,6 +29,7 @@ build_data:
     - npm run build_breadcrumbs
     - npm run build_history
     - ./node_modules/.bin/gulp prod
+    - npm run webpack
     - ./tools/hugo
   artifacts:
     paths:

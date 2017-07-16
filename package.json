@@ -7,7 +7,8 @@
     "build_poicount": "node scripts/build_poicount.js",
     "build_contributors": "node scripts/build_contributors.js",
     "build_breadcrumbs": "node scripts/build_breadcrumbs.js",
-    "build_history": "node scripts/build_history.js"
+    "build_history": "node scripts/build_history.js",
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,10 @@
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
+    "webpack": "^3.3.0",
     "yaml-front-matter": "^3.4.0"
+  },
+  "dependencies": {
+    "turbolinks": "^5.0.3"
   }
 }
