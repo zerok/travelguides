@@ -24,10 +24,7 @@ build_data:
   stage: build
   script:
     - mkdir -p data
-    - npm run build_poicount
-    - npm run build_contributors
-    - npm run build_breadcrumbs
-    - npm run build_history
+    - npm run build_data
     - ./node_modules/.bin/gulp prod
     - npm run webpack
     - ./tools/hugo
