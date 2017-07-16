@@ -1,7 +1,4 @@
 </div>
-{{ if getenv "FA_CODE" }}
-    <script src="https://use.fontawesome.com/{{ getenv "FA_CODE" }}.js"></script>
-{{ end }}
 <footer>
     {{ with $menu := $.Site.Menus.footer }}
     <nav id="footer-nav" class="grid-container">

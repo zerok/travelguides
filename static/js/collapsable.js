@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load' , () => {
+exports.init = function init() {
     document.querySelectorAll('.collapsable').forEach(container => {
         var label = container.querySelector('.collapsable__label');
         var indicator = document.createElement('i');
@@ -23,4 +23,4 @@ document.addEventListener('turbolinks:load' , () => {
             }
         });
     });
-});
+}

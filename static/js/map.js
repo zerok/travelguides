@@ -71,4 +71,5 @@ window.initMap = function initMap() {
     });   
 }
 
+// window.addEventListener('DOMContentLoaded', window.initMap);
 window.addEventListener('turbolinks:load', window.initMap);
